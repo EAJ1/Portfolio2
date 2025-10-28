@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'motion/react';
 import { GraduationCap, Calendar, MapPin, Award, Book } from 'lucide-react';
 
@@ -60,23 +61,116 @@ export function EducationSection({ isDark }: EducationSectionProps) {
 
   return (
     <section id="education" className="py-20 relative overflow-hidden scroll-mt-20">
-      {/* Background elements */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Insanely animated background elements */}
+      <div className="absolute inset-0 opacity-30">
+        {/* Morphing geometric shapes */}
         <motion.div
-          className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-full blur-2xl"
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.3, 1],
+          className="absolute top-20 right-20 w-32 h-32"
+          animate={{
+            borderRadius: ["50%", "0%", "25%", "50%"],
+            rotate: [0, 360, 180, 360],
+            scale: [1, 1.5, 0.8, 1.3, 1],
+            background: [
+              "linear-gradient(45deg, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.3))",
+              "linear-gradient(45deg, rgba(236, 72, 153, 0.3), rgba(147, 51, 234, 0.3))",
+              "linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(236, 72, 153, 0.3))",
+            ],
           }}
-          transition={{ duration: 8, repeat: Infinity }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{
+            filter: "blur(2xl)",
+            clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
+          }}
         />
+
         <motion.div
-          className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-full blur-2xl"
-          animate={{ 
-            rotate: [360, 0],
-            scale: [1.3, 1, 1.3],
+          className="absolute bottom-20 left-20 w-40 h-40"
+          animate={{
+            borderRadius: ["0%", "50%", "25%", "0%"],
+            rotate: [360, 0, 180, 0],
+            scale: [1.3, 1, 1.8, 0.9, 1.3],
+            x: [0, 50, -30, 20, 0],
+            y: [0, -40, 30, -20, 0],
+            background: [
+              "linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3))",
+              "linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(236, 72, 153, 0.3))",
+              "linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(59, 130, 246, 0.3))",
+            ],
           }}
-          transition={{ duration: 10, repeat: Infinity }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{
+            filter: "blur(2xl)",
+            clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+          }}
+        />
+
+        {/* Floating particles */}
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -100, 0],
+              x: [0, Math.sin(i) * 50, 0],
+              opacity: [0, 1, 0],
+              scale: [0, 2, 0],
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 8 + i,
+              repeat: Infinity,
+              delay: i * 0.5,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+
+        {/* Energy waves */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-96 h-96 border-2 border-purple-500/20 rounded-full"
+          animate={{
+            scale: [0, 2, 0],
+            opacity: [0, 0.5, 0],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeOut",
+          }}
+          style={{
+            transformOrigin: "center",
+          }}
+        />
+
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-64 h-64 border border-blue-500/15 rounded-full"
+          animate={{
+            scale: [0, 2.5, 0],
+            opacity: [0, 0.3, 0],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeOut",
+            delay: 2,
+          }}
+          style={{
+            transformOrigin: "center",
+          }}
         />
       </div>
 
@@ -132,9 +226,22 @@ export function EducationSection({ isDark }: EducationSectionProps) {
                     className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-500 to-blue-500 shadow-lg"
                     initial={{ scale: 0, rotate: -180 }}
                     whileInView={{ scale: 1, rotate: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
                     viewport={{ once: true }}
-                    whileHover={{ rotate: 360 }}
+                    whileHover={{
+                      rotate: 360,
+                      scale: 1.2,
+                      boxShadow: "0 0 30px rgba(147, 51, 234, 0.6)",
+                    }}
+                    animate={{
+                      rotate: [0, 10, -10, 0],
+                      scale: [1, 1.1, 1],
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.2 + 0.3,
+                      rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                      scale: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: index * 0.5 },
+                    }}
                   >
                     <edu.icon className="w-8 h-8 text-white" />
                   </motion.div>

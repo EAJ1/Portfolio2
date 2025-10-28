@@ -57,30 +57,6 @@ export function ProjectsSection({ isDark }: ProjectsSectionProps) {
       featured: true
     },
     {
-      id: 'fraud-detection',
-      title: 'AI Prototype Project – Finance Sector: Fraud Detection',
-      subtitle: 'AI-Powered Fraud Detection Prototype',
-      description: 'Developed an AI-powered fraud detection prototype for financial institutions to identify suspicious transactions in real time, improving accuracy while minimizing false positives.',
-      detailedDescription: 'Developed an AI-powered fraud detection prototype for financial institutions to identify suspicious transactions in real time, improving accuracy while minimizing false positives. Key Features: Real-time transaction analysis using AI classification models. Output flags: ✅ Safe / ⚠️ Suspicious (with reason for flagging). Error handling: Users can verify flagged transactions to reduce false positives. Interactive dashboard prototype for bank staff + customer alert screen. Supports Figma/Miro prototypes, simulated transaction data (CSV/Google Sheets).',
-      technologies: ['AI/ML: Classification model via Teachable Machine / Obviously AI', 'UI/UX Design: Figma, Miro', 'Data Simulation: Google Sheets API / CSV'],
-      category: 'AI/ML',
-      demoUrl: 'https://blanch-preset-07774997.figma.site/',
-      githubUrl: 'https://github.com/EAJ1/Aifrauddetectionprototype',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmF1ZCUyMGRldGVjdGlvbiUyMGZpbmFuY2UlMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc2MDYxNjY4NXww&ixlib=rb-4.1.0&q=80&w=1080',
-      isVideo: true,
-      videoSrc: '/AI-Fraud.mov',
-      highlights: [
-        'Real-time transaction analysis using AI classification models',
-        'Output flags: ✅ Safe / ⚠️ Suspicious with detailed reasons',
-        'Interactive dashboard for bank staff and customer alerts',
-        'Error handling with user verification to reduce false positives',
-        'Ethical considerations: bias mitigation, privacy, and accessibility'
-      ],
-      color: '#3B82F6',
-      icon: <Shield className="w-6 h-6" />,
-      featured: true
-    },
-    {
       id: 'echobridge',
       title: 'EchoBridge – AI-Powered Accessibility Assistant',
       subtitle: 'Accessibility Innovation',
@@ -102,6 +78,30 @@ export function ProjectsSection({ isDark }: ProjectsSectionProps) {
       ],
       color: '#EC4899',
       icon: <Globe className="w-6 h-6" />,
+      featured: true
+    },
+    {
+      id: 'fraud-detection',
+      title: 'AI Prototype Project – Finance Sector: Fraud Detection',
+      subtitle: 'AI-Powered Fraud Detection Prototype',
+      description: 'Developed an AI-powered fraud detection prototype for financial institutions to identify suspicious transactions in real time, improving accuracy while minimizing false positives.',
+      detailedDescription: 'Developed an AI-powered fraud detection prototype for financial institutions to identify suspicious transactions in real time, improving accuracy while minimizing false positives. Key Features: Real-time transaction analysis using AI classification models. Output flags: ✅ Safe / ⚠️ Suspicious (with reason for flagging). Error handling: Users can verify flagged transactions to reduce false positives. Interactive dashboard prototype for bank staff + customer alert screen. Supports Figma/Miro prototypes, simulated transaction data (CSV/Google Sheets).',
+      technologies: ['AI/ML: Classification model via Teachable Machine / Obviously AI', 'UI/UX Design: Figma, Miro', 'Data Simulation: Google Sheets API / CSV'],
+      category: 'AI/ML',
+      demoUrl: 'https://blanch-preset-07774997.figma.site/',
+      githubUrl: 'https://github.com/EAJ1/Aifrauddetectionprototype',
+      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmF1ZCUyMGRldGVjdGlvbiUyMGZpbmFuY2UlMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc2MDYxNjY4NXww&ixlib=rb-4.1.0&q=80&w=1080',
+      isVideo: true,
+      videoSrc: '/AI-Fraud.mov',
+      highlights: [
+        'Real-time transaction analysis using AI classification models',
+        'Output flags: ✅ Safe / ⚠️ Suspicious with detailed reasons',
+        'Interactive dashboard for bank staff and customer alerts',
+        'Error handling with user verification to reduce false positives',
+        'Ethical considerations: bias mitigation, privacy, and accessibility'
+      ],
+      color: '#3B82F6',
+      icon: <Shield className="w-6 h-6" />,
       featured: true
     }
   ];
@@ -192,7 +192,7 @@ export function ProjectsSection({ isDark }: ProjectsSectionProps) {
         </motion.div>
 
         {/* Featured Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {featuredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -229,7 +229,7 @@ export function ProjectsSection({ isDark }: ProjectsSectionProps) {
                 </motion.div>
 
                 {/* Project Image/Video */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <motion.div
                     className="absolute inset-0"
                     animate={{

@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ParticleField } from './components/ParticleField';
 import { ThemeToggle } from './components/ThemeToggle';
 import { FloatingNav } from './components/FloatingNav';
+
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
@@ -110,9 +111,11 @@ export default function App() {
       {/* Particle Field Background */}
       <ParticleField isDark={isDark} />
       
+
+
       {/* Theme Toggle */}
       <ThemeToggle isDark={isDark} setIsDark={setIsDark} />
-      
+
       {/* Floating Navigation */}
       <FloatingNav isDark={isDark} />
       

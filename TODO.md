@@ -1,11 +1,6 @@
-# TODO: Remove WhatsApp Cell Number
+# TODO: Change Animation for "Hello, I'm Africa Bulumko Jarana"
 
-- [x] Remove WhatsApp object from contacts array in ContactSection.tsx
-- [x] Update accessibility note to remove WhatsApp reference
-
-# TODO: Replace static images with live video demos
-
-- [x] Update ProjectsSection.tsx to support video playback for CVantage, AI-Fraud, and EchoBridge projects
-- [x] Add isVideo and videoSrc fields to Project interface
-- [x] Conditionally render <video> elements for video projects
-- [x] Test video playback in browser (dev server running on http://localhost:3009/)
+- [x] Replace the complex motion animations with a typewriter effect for the text "Hello, I'm Africa Bulumko Jarana" in HeroSection.tsx
+- [x] Add state and useEffect to simulate typing the text letter by letter
+- [x] Ensure the styling remains consistent with the existing design
+- [x] Test the animation to ensure it works smoothly

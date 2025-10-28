@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'motion/react';
 import { Calendar, MapPin, Building, Award, Brain } from 'lucide-react';
 
@@ -68,25 +69,183 @@ export function ExperienceSection({ isDark }: ExperienceSectionProps) {
 
   return (
     <section id="experience" className="py-20 relative overflow-hidden scroll-mt-20">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-30">
+      {/* Insanely animated background elements */}
+      <div className="absolute inset-0 opacity-40">
+        {/* Morphing timeline connectors */}
         <motion.div
-          className="absolute top-1/4 left-0 w-64 h-64 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full blur-3xl"
-          animate={{ 
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.2, 1]
+          className="absolute top-1/4 left-0 w-64 h-64"
+          animate={{
+            borderRadius: ["50%", "0%", "25%", "50%"],
+            rotate: [0, 360, 180, 360],
+            scale: [1, 1.5, 0.8, 1.3, 1],
+            background: [
+              "linear-gradient(45deg, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.3))",
+              "linear-gradient(45deg, rgba(236, 72, 153, 0.3), rgba(147, 51, 234, 0.3))",
+              "linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(236, 72, 153, 0.3))",
+            ],
+            x: [0, 50, -30, 20, 0],
+            y: [0, -40, 30, -20, 0],
           }}
-          transition={{ duration: 10, repeat: Infinity }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{
+            filter: "blur(2xl)",
+            clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
+          }}
         />
+
         <motion.div
-          className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-full blur-3xl"
-          animate={{ 
-            x: [0, -100, 0],
-            y: [0, 50, 0],
-            scale: [1.2, 1, 1.2]
+          className="absolute bottom-1/4 right-0 w-80 h-80"
+          animate={{
+            borderRadius: ["0%", "50%", "25%", "0%"],
+            rotate: [360, 0, 180, 0],
+            scale: [1.3, 1, 1.8, 0.9, 1.3],
+            background: [
+              "linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(147, 51, 234, 0.3))",
+              "linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.3))",
+              "linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(236, 72, 153, 0.3))",
+            ],
+            x: [0, -60, 40, -25, 0],
+            y: [0, 45, -35, 25, 0],
           }}
-          transition={{ duration: 12, repeat: Infinity }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{
+            filter: "blur(2xl)",
+            clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+          }}
+        />
+
+        {/* Animated connecting lines */}
+        <motion.div
+          className="absolute left-8 top-20 w-px h-32 bg-gradient-to-b from-purple-500/50 to-transparent"
+          animate={{
+            scaleY: [0, 1, 0],
+            opacity: [0, 1, 0],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        <motion.div
+          className="absolute left-8 top-1/2 w-px h-40 bg-gradient-to-b from-blue-500/50 to-transparent"
+          animate={{
+            scaleY: [0, 1, 0],
+            opacity: [0, 1, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+
+        <motion.div
+          className="absolute left-8 bottom-32 w-px h-24 bg-gradient-to-b from-pink-500/50 to-transparent"
+          animate={{
+            scaleY: [0, 1, 0],
+            opacity: [0, 1, 0],
+          }}
+          transition={{
+            duration: 3.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+        />
+
+        {/* Floating particles */}
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1.5 h-1.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+            style={{
+              left: `${15 + (i % 3) * 25}%`,
+              top: `${20 + Math.floor(i / 3) * 25}%`,
+            }}
+            animate={{
+              y: [0, -80, 0],
+              x: [0, Math.sin(i) * 40, 0],
+              opacity: [0, 1, 0],
+              scale: [0, 1.5, 0],
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 6 + i * 0.3,
+              repeat: Infinity,
+              delay: i * 0.4,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+
+        {/* Exploding dots */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`dot-${i}`}
+            className="absolute w-3 h-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full"
+            style={{
+              left: `${20 + i * 10}%`,
+              top: `${30 + (i % 2) * 40}%`,
+            }}
+            animate={{
+              scale: [0, 2, 0],
+              opacity: [0, 1, 0],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              delay: i * 0.5,
+              ease: "easeOut",
+            }}
+          />
+        ))}
+
+        {/* Energy waves */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-96 h-96 border-2 border-purple-500/15 rounded-full"
+          animate={{
+            scale: [0, 2, 0],
+            opacity: [0, 0.4, 0],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeOut",
+          }}
+          style={{
+            transformOrigin: "center",
+          }}
+        />
+
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-64 h-64 border border-blue-500/10 rounded-full"
+          animate={{
+            scale: [0, 2.5, 0],
+            opacity: [0, 0.3, 0],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeOut",
+            delay: 2,
+          }}
+          style={{
+            transformOrigin: "center",
+          }}
         />
       </div>
 
@@ -145,11 +304,24 @@ export function ExperienceSection({ isDark }: ExperienceSectionProps) {
                   <motion.div
                     className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r shadow-lg"
                     style={{ background: `linear-gradient(135deg, var(--color-purple-500), var(--color-blue-500))` }}
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+                    initial={{ scale: 0, rotate: -180 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{
+                      scale: 1.2,
+                      rotate: 360,
+                      boxShadow: "0 0 30px rgba(147, 51, 234, 0.6)",
+                    }}
+                    animate={{
+                      rotate: [0, 10, -10, 0],
+                      scale: [1, 1.1, 1],
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.2 + 0.3,
+                      rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                      scale: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.3 },
+                    }}
                   >
                     <exp.icon className="w-8 h-8 text-white" />
                   </motion.div>
