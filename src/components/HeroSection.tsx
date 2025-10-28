@@ -1,29 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'motion/react';
 import { ChevronDown, ExternalLink, Mail, Phone, Linkedin, Github } from 'lucide-react';
 import { MorphingBlob } from './MorphingBlob';
+import { TypewriterText } from './TypewriterText';
 
 interface HeroSectionProps {
   isDark: boolean;
 }
 
 export function HeroSection({ isDark }: HeroSectionProps) {
-  const [displayText, setDisplayText] = useState('');
-  const fullText = "Hello, I'm Africa Bulumko Jarana";
-
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index < fullText.length) {
-        setDisplayText(fullText.slice(0, index + 1));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 100); // Adjust speed here (100ms per character)
-
-    return () => clearInterval(timer);
-  }, []);
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -407,19 +392,14 @@ export function HeroSection({ isDark }: HeroSectionProps) {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.2, duration: 0.8, type: "spring", stiffness: 100 }}
               >
-                <motion.span
+                <TypewriterText
+                  text="Hello, I'm Africa Bulumko Jarana"
+                  speed={100}
                   className="inline-block text-2xl font-semibold bg-gradient-to-r from-purple-600 via-blue-500 to-purple-800 bg-clip-text text-transparent"
                   style={{
                     textShadow: '0 0 15px rgba(147, 51, 234, 0.6), 0 0 30px rgba(59, 130, 246, 0.4)',
                   }}
-                >
-                  {displayText}
-                  <motion.span
-                    animate={{ opacity: [1, 0] }}
-                    transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-                    className="inline-block w-0.5 h-6 bg-purple-500 ml-1"
-                  />
-                </motion.span>
+                />
 
                 {/* Floating particles around text */}
                 {[...Array(8)].map((_, i) => (
