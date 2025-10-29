@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
@@ -27,7 +28,13 @@ export function SkillsSection({ isDark }: SkillsectionProps) {
     { name: 'Networking', category: 'Infrastructure', level: 85, color: '#FF6B35' },
     { name: 'WordPress', category: 'CMS', level: 70, color: '#21759B' },
     { name: 'Office 365', category: 'Productivity', level: 90, color: '#D83B01' },
-    { name: 'Problem Solving', category: 'Soft Skills', level: 95, color: '#8B5CF6' }
+    { name: 'Problem Solving', category: 'Soft Skills', level: 95, color: '#8B5CF6' },
+    { name: 'Communication', category: 'Soft Skills', level: 90, color: '#10B981' },
+    { name: 'Leadership', category: 'Soft Skills', level: 85, color: '#F59E0B' },
+    { name: 'Creativity', category: 'Soft Skills', level: 88, color: '#EC4899' },
+    { name: 'Adaptability', category: 'Soft Skills', level: 92, color: '#3B82F6' },
+    { name: 'Time Management', category: 'Soft Skills', level: 87, color: '#8B5CF6' },
+    { name: 'Teamwork', category: 'Soft Skills', level: 93, color: '#06B6D4' }
   ];
 
   const categories = ['Frontend', 'Backend', 'Database', 'Cloud', 'Infrastructure', 'CMS', 'Productivity', 'Soft Skills'];
@@ -187,33 +194,7 @@ export function SkillsSection({ isDark }: SkillsectionProps) {
           })}
         </div>
 
-        {/* Floating skill badges */}
-        <motion.div
-          className="mt-16 flex flex-wrap justify-center gap-4"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          {['Communication', 'Teamwork', 'Adaptability', 'Time Management', 'Sign Language', 'Accessibility'].map((skill, index) => (
-            <motion.span
-              key={skill}
-              className="px-4 py-2 rounded-full backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all cursor-default"
-              style={{
-                background: isDark 
-                  ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2))'
-                  : 'linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2))'
-              }}
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.1, y: -2 }}
-            >
-              {skill}
-            </motion.span>
-          ))}
-        </motion.div>
+
       </div>
     </section>
   );

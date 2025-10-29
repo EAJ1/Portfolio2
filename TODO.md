@@ -1,7 +1,6 @@
-# TODO: Refactor Typewriter Animation for Scalability
+# TODO: Enhance Soft Skills Section
 
-- [x] Create a reusable TypewriterText component
-- [x] Extract typewriter logic from HeroSection.tsx
-- [x] Update HeroSection to use the new TypewriterText component
-- [x] Ensure the component is flexible and customizable
-- [x] Test the refactored animation to ensure it works smoothly
+- [x] Add more soft skills to the skills array (e.g., Communication, Leadership, Creativity, etc.)
+- [x] Enhance floating badges with more soft skills and add tooltips or descriptions
+- [x] Add icons or visual elements for soft skills to improve aesthetics
+- [x] Test animations and responsiveness after changes
